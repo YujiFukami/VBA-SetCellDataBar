@@ -10,7 +10,7 @@ Option Explicit
 '------------------------------
 
 
-Sub SetCellDataBar(TargetCell As Range, Ratio#, Color&)
+Public Sub SetCellDataBar(TargetCell As Range, Ratio#, Color&)
 'セルの書式設定で0～1の値に基づいて、データバーを設定する
 '20210820
 
