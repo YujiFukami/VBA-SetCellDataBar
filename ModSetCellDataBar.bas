@@ -3,14 +3,9 @@ Option Explicit
 
 'SetCellDataBar・・・元場所：FukamiAddins3.ModCell
 
-'------------------------------
 
 
-
-'------------------------------
-
-
-Public Sub SetCellDataBar(TargetCell As Range, Ratio#, Color&)
+Public Sub SetCellDataBar(TargetCell As Range, Ratio As Double, Color As Long)
 'セルの書式設定で0～1の値に基づいて、データバーを設定する
 '20210820
 
@@ -18,16 +13,14 @@ Public Sub SetCellDataBar(TargetCell As Range, Ratio#, Color&)
 'Ratio      :割合（0～1）
 'Color      :バーの色（RGB値）
 
-    Dim Gosa#
+    Dim Gosa As Double
     Gosa = 10 ^ (-10) '←←←←←←←←←←←←←←←←←←←←←←←
     
     With TargetCell
-        
         .Interior.Pattern = xlPatternLinearGradient
         .Interior.Gradient.Degree = 0
         
         With .Interior.Gradient.ColorStops
-            
             If Ratio > Gosa Then
                 .Add(0).Color = Color
                 .Add(Gosa).Color = Color
